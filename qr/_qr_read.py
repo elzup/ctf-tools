@@ -1,6 +1,6 @@
 from PIL import Image
 import sys
-from qr import *
+import qr
 
 def scan(img, top, left, msize, version):
     w = h = version * 4 + 17
@@ -28,4 +28,5 @@ img = img.convert('RGB')
 for y in range(0, 100):
     for x in range(100):
         qrtxt = scan(img, 29*module_size*x, 29*module_size*y, module_size, version)
+        dir(qr)
         print(read_qr(qrtxt))
