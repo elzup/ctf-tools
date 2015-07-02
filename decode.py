@@ -50,6 +50,19 @@ def cheap_cipher(text):
     # print("urldec         : ", (url_unescape($text)), "\n");
 
 
+def decode_each_base(li):
+    k = ''
+    for n in li:
+        d = 10
+        if n[0] == '0':
+            d = 8
+        elif any(c in n for c in "abcdef"):
+            d = 16
+        elif len(n) > 4:
+            d = 2
+        k += chr(int(n, d))
+    return k
+
 unienc = lambda s: ":".join([chr(int(c, 16)) for c in s.split(":")])
 unidec = lambda s: ":".join("{:02x}".format(ord(c)) for c in s)
 hexto = lambda c: '\\x{0:X}'.format(ord(c))
