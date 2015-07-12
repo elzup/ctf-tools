@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import sys
 
 def rot_n(v, n):
     lib = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
@@ -9,7 +9,7 @@ def rot_n(v, n):
             t += c
         k = lib.find(c)
         t += lib[(k + n + 52) % 52]
-    print("rot%2d".format(n), t)
+    print("rot{0:2d}".format(n), t)
 
 
 def rot13(v):
@@ -53,6 +53,8 @@ def encode_greek(v):
 
 # v = 'ΥΔΗΖΙΝΔJΙ-ΧJΙΟΜJGGΔΙΒ ΑJΜΟ "ΥJΓ" ΓΥΝ ΙJΡ WΖΖΙ ΥΖΗJGΔΝΓΖΥ, ΥΙΥ ΟΔΗΖ ΝΟΥΜΟΖΥ ΑGJΡΔΙΒ ΜΖQΖΜΝΖGΤ. "QΥΠΝ" ΗΥΙΥΒΖΥ ΟJ ΖΝΧΥΚΖ ΑΜJΗ ΟΓΖ ΥΔΝΟJΜΟΖΥ ΝΚΥΧΖ. WΠΟ ΟΓΖ ΜΖΥG QJΤΥΒΖ JΑ "ΥΜFΥΙJΔΥ" ΔΙ ΟΓΖ ΒΥGΥΣΤ ΓΥΝ JΙGΤ ΝΟΥΜΟΖΥ......'
 v = 'ydizindji-xjiomjggdib ajmo "yjg" gyn ijp wzzi yzhjgdngzy, yiy odhz noymozy agjpdib mzqzmnzgt. "qypn" hyiybzy qj znxykz amjh ogz ydnojmozy nkyxz. wpo ogz mzyg qjtybz ja "ymfyijdy" di ogzb ygyst gyn jigt noymozy......'
+if len(sys.argv) >= 2:
+    v = sys.argv[1]
 rot_all(v)
 # print(encode_greek(v))
 

