@@ -126,3 +126,7 @@ sitemap.xml
 robots.txt
 %00
 .htpasswd%00
+
+
+# dump header grep
+curl --dump-header - http://ringzer0team.com/challenges/43 2> /dev/null |grep needle
