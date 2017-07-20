@@ -4,9 +4,10 @@ import sys
 def rot_n(v, n):
     lib = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     t = ''
-    for j, c in enumerate(list(v)):
+    for j, c in enumerate(list(v.strip())):
         if c not in lib:
             t += c
+            continue
         k = lib.find(c)
         t += lib[(k + n + 52) % 52]
     print("rot{0:2d}".format(n), t)
