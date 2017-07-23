@@ -26,3 +26,8 @@ Wireshark
 Fiddler
 
 Ida
+
+# length extension attack
+HashPump
+git@github.com:bwall/HashPump.git
+hashpump.sh
