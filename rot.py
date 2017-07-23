@@ -19,6 +19,7 @@ def rot13(v):
 
 def rot_all(v):
     for i in range(52):
+        # rot_chr(v, i)
         rot_n(v, i)
 
 
@@ -28,6 +29,9 @@ def rot_chr(v, n):
         t += chr(ord(c) + n)
     return t
 
+def rot_map_rev(v):
+    cmap = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
+    return "".join(map(lambda k: cmap[len(cmap) - cmap.index(k) - 1], v))
 
 def encode_greek(v):
     t = ''
@@ -56,6 +60,7 @@ def encode_greek(v):
 v = 'ydizindji-xjiomjggdib ajmo "yjg" gyn ijp wzzi yzhjgdngzy, yiy odhz noymozy agjpdib mzqzmnzgt. "qypn" hyiybzy qj znxykz amjh ogz ydnojmozy nkyxz. wpo ogz mzyg qjtybz ja "ymfyijdy" di ogzb ygyst gyn jigt noymozy......'
 if len(sys.argv) >= 2:
     v = sys.argv[1]
-rot_all(v)
+# rot_all(v)
+print(rot_map_rev(v))
 # print(encode_greek(v))
 
